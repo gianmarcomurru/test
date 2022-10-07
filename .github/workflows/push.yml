@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          ls -la
           ACCOUNT="540173290202"
           echo "AMI=`cat ami.txt`" >> $GITHUB_ENV
           echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
@@ -31,10 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          ls -al
           ACCOUNT="763104487069"
           echo "AMI=`cat ami.txt`" >> $GITHUB_ENV
           echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
       - run: |
+
           echo "Deploy to PCI by sending these messages to https://sqs.eu-west-1.amazonaws.com/763104487069/reepay-evry-updater-sqs.fifo:"
           echo "{\"stack_name\": \"gateway-evry-vpn-proxy-1\", \"ami\": \"${{ env.AMI }}\", \"ip\": \"108.128.88.8\"}"
           echo "{\"stack_name\": \"gateway-evry-vpn-proxy-2\", \"ami\": \"${{ env.AMI }}\", \"ip\": \"108.128.88.9\"}"
