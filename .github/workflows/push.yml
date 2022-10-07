@@ -15,7 +15,7 @@ jobs:
           ACCOUNT="540173290202"
           export AMI=`cat ami.txt`
           echo "AMI=$AMI" >> $GITHUB_ENV
-          echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
+          echo "Sharing $AMI with account $ACCOUNT"
       - run: |
           STACK_NAME="gateway-evry-vpn-proxy-1"
           IP="108.128.88.8"
@@ -38,7 +38,7 @@ jobs:
           ACCOUNT="763104487069"
           export AMI=`cat ami.txt`
           echo "AMI=$AMI" >> $GITHUB_ENV
-          echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
+          echo "Sharing $AMI with account $ACCOUNT"
       - run: |
 
           echo "Deploy to PCI by sending these messages to https://sqs.eu-west-1.amazonaws.com/763104487069/reepay-evry-updater-sqs.fifo:"
