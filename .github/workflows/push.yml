@@ -13,9 +13,9 @@ jobs:
       - run: |
           ls -la
           ACCOUNT="540173290202"
-          echo "AMI=`cat ami.txt`" >> $GITHUB_ENV
+          export AMI=`cat ami.txt`
+          echo "AMI=$AMI" >> $GITHUB_ENV
           echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
-          aws ec2 modify-image-attribute --image-id ${{ env.AMI }} --launch-permission "{\"Add\":[{\"UserId\":\"$ACCOUNT\"}]}"
       - run: |
           STACK_NAME="gateway-evry-vpn-proxy-1"
           IP="108.128.88.8"
@@ -36,7 +36,8 @@ jobs:
       - run: |
           ls -al
           ACCOUNT="763104487069"
-          echo "AMI=`cat ami.txt`" >> $GITHUB_ENV
+          export AMI=`cat ami.txt`
+          echo "AMI=$AMI" >> $GITHUB_ENV
           echo "Sharing ${{ env.AMI }} with account $ACCOUNT"
       - run: |
 
