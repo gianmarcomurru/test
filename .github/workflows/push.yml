@@ -9,6 +9,7 @@ jobs:
   deploy-to-staging:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: |
           ls -la
           ACCOUNT="540173290202"
@@ -31,6 +32,7 @@ jobs:
   deploy-to-pci:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - run: |
           ls -al
           ACCOUNT="763104487069"
